@@ -7,9 +7,28 @@ $(function () {
 
     function getData(){
         $("#plist").empty();
+
+        $.get(url, function (data, status) {
+            if (status == 'success') {
+                $.each(data, function (index, item) {
+                    console.log(index + ' : ' + item['name']);
+                    $('#plist').append(`<tr>
+                                            <td><img src="${item['photo']}"></td>
+                                            <td>${item['serialno']}</td>
+                                            <td>${item['name']}</td>
+                                            <td>${item['category']}</td>
+                                            <td>${item['price']}</td>
+                                            
+                                            </tr>`);
+        
+                });
+            }
+        });
         // #12 Get all products and display as a table
         // use $.get
-
+        $("input").keyup(function(){
+            var txt = $
+        })
         // ===============================
     }
     
@@ -30,7 +49,9 @@ $(function () {
 
         // #13 Add new products by calling api
         // use $.post
-
+        $.post(url, function(newproduct, status){
+            alert("Data: " + newproduct + " Status: " + status);
+          });
         // ===============================
 
     });
