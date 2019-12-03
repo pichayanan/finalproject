@@ -4,7 +4,7 @@ const Product = require('./models/productSchema')
 const url = "";
 // ===============================
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect(, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 
 function getAllProducts(req, res) {
 
