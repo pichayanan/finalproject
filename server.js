@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // #3 Serve static content in folder frontend
-app.use(express.static("www"));
+app.use(express.static("frontend"));
 // ===============================
 
 
@@ -38,6 +38,9 @@ var router = express.Router();              // get an instance of the express Ro
 var products = require('./api');
 router.get('/products', products.getAllProducts);
 router.get('/products/:pid', products.getProductById);
+router.post('/products', products.addProduct);
+router.put('/products/:pid', products.updateProductById);
+router.delete('/products/:pid', products.deleteProductById);
 
 // #4 Complete the routing for POST, PUT, DELETE
 app.post('/api/products',function (req, res) {
@@ -79,5 +82,9 @@ app.use('/api', cors(), router);
 
 // #10 Start the server
 
+app.listen(port, function () {
 // ===============================
 console.log('Magic happens on http://localhost:' + port);
+
+});
+
