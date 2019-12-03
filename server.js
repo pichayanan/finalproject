@@ -43,35 +43,7 @@ router.put('/products/:pid', products.updateProductById);
 router.delete('/products/:pid', products.deleteProductById);
 
 // #4 Complete the routing for POST, PUT, DELETE
-app.post('/api/products',function (req, res) {
-    var newproduct =req.body;
-    var product = new Product(newproduct);
-    product.save(function (err){
-        if(err) res.status(500).json(err);
-        res.json({status: "Added a product"});
-    });
-    
-});
 
-
-app.put('/api/products/:id',function (req, res) {
-    var id = req.params.id;
-    var updateproduct = req.body;
-    Product.findByIdAndUpdate(id, updateproduct, function(err){
-        if (err) res.status(500).json(err);
-        res.json({status: "updated a product"});
-    })
-   
-});
-app.delete('/api/products/:id',function (req, res) {
-    var id = req.params.id;
-    var updateproduct = req.body;
-    Product.findByIdAndUpdate(id, updateproduct, function(err){
-        if (err) res.status(500).json(err);
-        res.json({status: "delete a product"});
-    })
-   
-});
 
 // ===============================
 
