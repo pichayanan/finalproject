@@ -8,7 +8,7 @@ $(function () {
     function getData(){
         $("#plist").empty();
 
-        $.get(url, function (data, status) {
+        $.post(url, function (data, status) {
             if (status == 'success') {
                 $.each(data, function (index, item) {
                     console.log(index + ' : ' + item['name']);
@@ -26,9 +26,7 @@ $(function () {
         });
         // #12 Get all products and display as a table
         // use $.get
-        $("input").keyup(function(){
-            var txt = $
-        })
+      
         // ===============================
     }
     

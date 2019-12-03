@@ -10,10 +10,10 @@ var cors = require('cors');
 
 // #2 Add body-parser package to the app
 var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-})); 
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// })); 
 
 // ===============================
 

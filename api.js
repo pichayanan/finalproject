@@ -19,7 +19,7 @@ function getAllProducts(req, res) {
 function getProductById(req, res) {
     var pid = req.params.pid;    
     // #6 Get a product by ID
-    Product.find({"_id":pid},function(err, products) {
+    Product.find({"serialno":pid},function(err, products) {
         if (err) res.status(500).json(err);
 
         res.json(products);
@@ -52,6 +52,7 @@ function deleteProductById(req, res) {
 
 function addProduct(req, res) {
     var payload = req.body
+    var product = new Product(payload)
     // #9 Add a new product 
     product.save(function (err){
         if(err) res.status(500).json(err);
